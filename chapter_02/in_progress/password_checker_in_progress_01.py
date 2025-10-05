@@ -2,13 +2,16 @@ import streamlit as st
 
 # Add your own conditions if you like
 conditions = {
-    'More than 8 characters': lambda pw: len(pw) > 8,
+    'More than 8 characters': 
+        lambda pw: len(pw) > 8,
     'At least one uppercase letter':
         lambda pw: any(char.isupper() for char in pw),
     'At least one lowercase letter':
         lambda pw: any(char.islower() for char in pw),
     'At least one special character':
         lambda pw: any(char in ",.!?@#$%^&*()-_+=|\\/:;<>~" for char in pw),
+    'At least one number':
+        lambda pw: any(char.isdigit() for char in pw),
 }
 
 def get_password_properties(password):
